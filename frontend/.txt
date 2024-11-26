@@ -1,0 +1,171 @@
+import { CiUser } from "react-icons/ci";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdPhone } from "react-icons/md";
+import { FaMapMarkedAlt, FaCity, FaRegBuilding } from "react-icons/fa";
+import { AiOutlineGlobal } from "react-icons/ai";
+
+const Register = () => {
+  return (
+    <>
+      <div className="min-h-[80vh] flex justify-center items-center flex-col">
+        <div className="w-[60%] p-2 flex flex-col justify-center items-center rounded-lg">
+          <div className="w-full p-2 flex flex-col gap-4">
+            {/* Username */}
+            <div className="inputBox mb-4 w-full relative">
+              <CiUser className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="inputBox mb-4 w-full relative">
+              <MdOutlineEmail className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Phone Number */}
+            <div className="inputBox mb-4 w-full relative">
+              <MdPhone className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="phone"
+                placeholder="Phone Number"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Address */}
+            <div className="inputBox mb-4 w-full relative">
+              <FaMapMarkedAlt className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="address"
+                placeholder="Address"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* City */}
+            <div className="inputBox mb-4 w-full relative">
+              <FaCity className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="city"
+                placeholder="City"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* State */}
+            <div className="inputBox mb-4 w-full relative">
+              <FaRegBuilding className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="state"
+                placeholder="State"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Country */}
+            <div className="inputBox mb-4 w-full relative">
+              <AiOutlineGlobal className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="text"
+                id="country"
+                placeholder="Country"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="inputBox mb-4 w-full relative">
+              <CiUser className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Register;
+
+
+mport { CiUser } from "react-icons/ci";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlinePhoneEnabled } from "react-icons/md";
+import { PiAddressBookThin } from "react-icons/pi";
+import { CiLocationOn } from "react-icons/ci";
+import { PiCityLight } from "react-icons/pi";
+import { MdOutlineRealEstateAgent } from "react-icons/md";
+import { FaPlaceOfWorship } from "react-icons/fa";
+
+const register = () => {
+  return (
+    <>
+      <div className="min-h-[80vh] flex justify-center items-center flex-col">
+        <div className="w-[60%] p-2  flex flex-col justify-center items-center rounded-lg  ">
+          {/* border-2 border-yellow-500 border-2 */}
+
+          {/* //! 1  */}
+          <div className="twoinput w-full  p-2 flex justify-center items-center gap-2">
+            <div className="inputBox mb-4 w-[100%]">
+              <div className="relative">
+                <CiUser className="absolute top-1/2 left-4 transform -translate-y-1/2 text-[#636380]" />
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                  className="w-full pl-12 pr-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+
+            {/* Email */}
+            <div className="inputBox mb-4 w-[100%]">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                className="w-full px-4 py-2 rounded-lg focus:outline-none bg-[#242444] text-[#636380] outline-none"
+                autoComplete="off"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default register;
+
+ye kaise hai waise karke do sab do do mai aaye
+
+//! RELATED TO REGISTER
