@@ -9,11 +9,10 @@ const userSlice = createSlice({
     error: null,     // Add error state
   },
   reducers: {
-    // Optional: You can add an action for setting loading state
+    // Action to set loading state
     setLoading: (state) => {
       state.loading = true;
-      state.error = false;
-
+      state.error = null; // Set error to null instead of false
     },
     
     // Action to set user data
@@ -27,14 +26,12 @@ const userSlice = createSlice({
     
     // Action to handle sign-in failure
     signInFail: (state, action) => {
-      console.log("Sign In Failed", action.payload);
+      console.error("Sign In Failed", action.payload);
       state.loading = false; // Set loading to false on failure
-      state.error = action.payload; // Set the error message
+      state.error = action.payload || "An unknown error occurred"; // Default error message if no payload
     },
-
-   
   },
 });
 
-export const { setUser, signInSuccess, signInFail, setLoading } = userSlice.actions;
+export const { setUser, signInFail, setLoading } = userSlice.actions;
 export default userSlice.reducer;

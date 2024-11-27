@@ -4,20 +4,18 @@ import { CiUser } from "react-icons/ci";
 import { useState } from "react";
 import { backendurlForUserLogin } from "../helpers/backend"; // Adjust import path as needed
 import { useRouter } from 'next/navigation';
-import { useDispatch,  } from "react-redux";
-import { setUser } from "../redux/slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser, setLoading, signInFail } from "../redux/slices/userSlice";
 
 const Login = () => {
   const router = useRouter();
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector((state) => state.user); // Get loading and error from Redux
 
-  
   const [userInput, setUserInput] = useState({
     email: "",
     password: "",
   });
-
-  const [message, setMessage] = useState('');
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -29,6 +27,8 @@ const Login = () => {
 
   const handleForm = async (e) => {
     e.preventDefault();
+
+    dispatch(setLoading());  // Set loading state in Redux
 
     try {
       const response = await fetch(`${backendurlForUserLogin}`, {
@@ -42,17 +42,16 @@ const Login = () => {
 
       const data = await response.json();
       console.log(data, "response");
-      
+
       if (response.ok && data.status === true) {
-        disptach(setUser(data.user));
-        // setMessage("User logged in successfully.");
+        dispatch(setUser(data.user)); // Set user data
         router.push("/"); 
       } else {
-        setMessage("Login failed. Please check your credentials.");
+        dispatch(signInFail("Login failed. Please check your credentials.")); // Dispatch error
       }
     } catch (error) {
       console.log(error, "error");
-      setMessage("An error occurred. Please try again.");
+      dispatch(signInFail("An error occurred. Please try again.")); // Dispatch error
     }
   };
 
@@ -61,10 +60,10 @@ const Login = () => {
       <div className="w-[400px] p-8 flex flex-col justify-center items-center bg-white rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-6 text-center text-[#333]">Login to Your Account</h2>
 
-        {/* Message (if any) */}
-        {message && (
+        {/* Error Message from Redux */}
+        {error && (
           <div className="mb-4 text-center text-red-500">
-            <p>{message}</p>
+            <p>{error}</p>
           </div>
         )}
 
@@ -107,8 +106,9 @@ const Login = () => {
             <button 
               type="submit" 
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300 ease-in-out"
+              disabled={loading}  // Disable button while loading
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
           </div>
         </form>
